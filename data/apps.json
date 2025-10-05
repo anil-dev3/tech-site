@@ -1,14 +1,40 @@
 [
     {
         "name": "Notion",
+        "slug": "notion",
         "description": "All-in-one workspace for notes, tasks, and databases.",
         "url": "https://notion.so",
-        "category": "Productivity"
+        "category": "Productivity",
+        "detailPage": "dist/apps/notion/index.html",
+        "longDescription": "Notion is a comprehensive workspace that combines note-taking, task management, databases, and wikis. It's perfect for personal use and team collaboration.",
+        "features": [
+            "Rich text editor with markdown support",
+            "Database and spreadsheet views",
+            "Task and project management",
+            "Real-time collaboration",
+            "Templates for various use cases",
+            "Mobile and desktop apps"
+        ],
+        "platforms": ["Web", "Windows", "macOS", "iOS", "Android"],
+        "pricing": "Free tier available, Premium from $8/month"
     },
     {
         "name": "ShareX",
+        "slug": "sharex",
         "description": "Free screen capture, file sharing and productivity tool.",
         "url": "https://getsharex.com/",
-        "category": "Utilities"
+        "category": "Utilities",
+        "detailPage": "dist/apps/sharex/index.html",
+        "longDescription": "ShareX is a free and open-source screen capture and file sharing tool. It offers a wide range of capture methods and powerful upload options.",
+        "features": [
+            "Multiple capture methods (fullscreen, window, region)",
+            "Screen recording",
+            "Color picker and ruler tools",
+            "Image editing and annotation",
+            "Upload to 80+ destinations",
+            "Custom workflows and hotkeys"
+        ],
+        "platforms": ["Windows"],
+        "pricing": "Free and Open Source"
     }
 ]

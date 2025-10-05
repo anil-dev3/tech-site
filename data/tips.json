@@ -1,12 +1,55 @@
 [
     {
         "title": "Take Screenshots Quickly",
+        "slug": "take-screenshots-quickly",
         "description": "Press Win+Shift+S to open the snipping tool in Windows 10/11.",
-        "category": "Windows"
+        "category": "Windows",
+        "detailPage": "dist/tips/take-screenshots-quickly/index.html",
+        "longDescription": "Learn how to take screenshots quickly and efficiently in Windows 10 and 11 using the built-in Snipping Tool.",
+        "steps": [
+            "Press Win+Shift+S on your keyboard",
+            "Your screen will dim and a toolbar will appear at the top",
+            "Choose your snipping mode: Rectangular, Freeform, Window, or Fullscreen",
+            "Select the area you want to capture",
+            "The screenshot is automatically copied to your clipboard",
+            "Click the notification to open it in Snip & Sketch for editing"
+        ],
+        "additionalTips": [
+            "Use Win+PrtScn to save a fullscreen screenshot directly to Pictures folder",
+            "Alt+PrtScn captures only the active window",
+            "You can access Snipping Tool settings from the system tray icon"
+        ]
     },
     {
         "title": "Incognito Mode Shortcut",
+        "slug": "incognito-mode-shortcut",
         "description": "Press Ctrl+Shift+N in Chrome to open a new Incognito window.",
-        "category": "Browser"
+        "category": "Browser",
+        "detailPage": "dist/tips/incognito-mode-shortcut/index.html",
+        "longDescription": "Open an Incognito or Private browsing window instantly using keyboard shortcuts across different browsers.",
+        "shortcuts": [
+            {
+                "browser": "Google Chrome",
+                "shortcut": "Ctrl+Shift+N (Windows/Linux) or Cmd+Shift+N (Mac)"
+            },
+            {
+                "browser": "Mozilla Firefox",
+                "shortcut": "Ctrl+Shift+P (Windows/Linux) or Cmd+Shift+P (Mac)"
+            },
+            {
+                "browser": "Microsoft Edge",
+                "shortcut": "Ctrl+Shift+N (Windows) or Cmd+Shift+N (Mac)"
+            },
+            {
+                "browser": "Safari",
+                "shortcut": "Cmd+Shift+N (Mac)"
+            }
+        ],
+        "benefits": [
+            "Browse without saving history",
+            "Websites can't track you with cookies",
+            "Test websites without cache",
+            "Sign in to multiple accounts simultaneously"
+        ]
     }
 ]

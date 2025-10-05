@@ -1,14 +1,51 @@
 [
     {
         "name": "Password Generator",
+        "slug": "password-generator",
         "description": "Generate secure random passwords for your accounts.",
         "url": "https://passwordsgenerator.net/",
-        "category": "Security"
+        "category": "Security",
+        "detailPage": "dist/tools/password-generator/index.html",
+        "longDescription": "A powerful online tool to generate strong, secure, and random passwords. Protect your accounts with passwords that are virtually impossible to crack.",
+        "features": [
+            "Customizable password length",
+            "Include/exclude special characters, numbers, uppercase/lowercase",
+            "Generate multiple passwords at once",
+            "Password strength indicator",
+            "Copy to clipboard functionality",
+            "No data stored or transmitted"
+        ],
+        "useCases": [
+            "Creating new account passwords",
+            "Resetting compromised passwords",
+            "Generating API keys",
+            "Creating secure passphrases"
+        ],
+        "pricing": "Free"
     },
     {
         "name": "JSON Formatter",
+        "slug": "json-formatter",
         "description": "Easily format and validate your JSON data.",
         "url": "https://jsonformatter.org/",
-        "category": "Development"
+        "category": "Development",
+        "detailPage": "dist/tools/json-formatter/index.html",
+        "longDescription": "An essential tool for developers to format, validate, and beautify JSON data. Makes working with JSON easier and more efficient.",
+        "features": [
+            "Format and beautify JSON",
+            "Validate JSON syntax",
+            "Minify JSON",
+            "Convert JSON to XML/CSV",
+            "Tree view for complex structures",
+            "Syntax highlighting"
+        ],
+        "useCases": [
+            "Debugging API responses",
+            "Cleaning up minified JSON",
+            "Validating configuration files",
+            "Converting data formats",
+            "Learning JSON structure"
+        ],
+        "pricing": "Free"
     }
 ]

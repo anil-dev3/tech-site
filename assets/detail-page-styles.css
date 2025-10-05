@@ -1,0 +1,306 @@
+/* Modern Detail Page Styles */
+body {
+    background: #fff;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.detail-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.detail-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 50px 30px;
+    background: #000;
+    color: white;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+}
+
+.detail-header h1 {
+    margin: 0 0 15px 0;
+    font-size: 3em;
+    font-weight: 800;
+}
+
+.detail-header p {
+    font-size: 1.2em;
+    opacity: 0.95;
+}
+
+.detail-header .category {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 25px;
+    font-size: 0.95em;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.detail-section {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 35px;
+    margin-bottom: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detail-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.3);
+}
+
+.detail-section h2 {
+    background: #000;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 0;
+    border-bottom: 3px solid transparent;
+    border-image: #000;
+    padding-bottom: 15px;
+    font-weight: 700;
+    font-size: 1.8em;
+}
+
+.detail-section p {
+    line-height: 1.8;
+    color: #555;
+}
+
+.feature-list, .platform-list, .usecase-list, .step-list, .tip-list, .benefit-list, .shortcut-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li, .usecase-list li, .benefit-list li {
+    padding: 15px 15px 15px 20px;
+    margin: 12px 0;
+    background: linear-gradient(90deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.05) 100%);
+    border-left: 4px solid #667eea;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.feature-list li:hover, .usecase-list li:hover, .benefit-list li:hover {
+    transform: translateX(10px);
+    background: linear-gradient(90deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.1) 100%);
+}
+
+.feature-list li:before, .benefit-list li:before {
+    content: "\\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #667eea;
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.usecase-list li:before {
+    content: "\\f111";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #667eea;
+    margin-right: 10px;
+    font-size: 0.6em;
+    vertical-align: middle;
+}
+
+.step-list {
+    counter-reset: step-counter;
+}
+
+.step-list li {
+    padding: 20px 20px 20px 60px;
+    margin: 15px 0;
+    background: linear-gradient(90deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.05) 100%);
+    border-left: 4px solid #667eea;
+    border-radius: 12px;
+    counter-increment: step-counter;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.step-list li:hover {
+    transform: translateX(10px);
+    background: linear-gradient(90deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.1) 100%);
+}
+
+.step-list li:before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1em;
+    box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+}
+
+.tip-list li {
+    padding: 15px 15px 15px 20px;
+    margin: 12px 0;
+    background: linear-gradient(90deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 152, 0, 0.1) 100%);
+    border-left: 4px solid #ffc107;
+    border-radius: 12px;
+}
+
+.tip-list li:before {
+    content: "\\f0eb";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #ffc107;
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+.shortcut-list li {
+    padding: 20px;
+    margin: 15px 0;
+    background: linear-gradient(90deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.05) 100%);
+    border-left: 4px solid #667eea;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.shortcut-list li:hover {
+    transform: translateX(10px);
+    background: linear-gradient(90deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.1) 100%);
+}
+
+.shortcut-list li strong {
+    display: block;
+    color: #667eea;
+    margin-bottom: 8px;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.platform-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.platform-list li {
+    border-left: none;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.95em;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
+}
+
+.platform-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+    font-size: 1.05em;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.9);
+    color: #667eea;
+    border: 2px solid #667eea;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+}
+
+.pricing-box {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #667eea;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+}
+
+.keyboard-shortcut {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    margin: 0 3px;
+}
+
+@media (max-width: 768px) {
+    .detail-container {
+        padding: 15px;
+    }
+    
+    .detail-header {
+        padding: 30px 20px;
+    }
+    
+    .detail-header h1 {
+        font-size: 2em;
+    }
+    
+    .detail-section {
+        padding: 20px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

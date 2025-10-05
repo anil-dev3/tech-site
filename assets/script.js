@@ -1,16 +1,16 @@
 // Navigation Menu Items - Edit this array to add/remove menu items
 const menuItems = [
-    { href: 'index.html', icon: '🏠', text: 'Home' },
-    { href: 'tips.html', icon: '💡', text: 'Tips & Tricks' },
-    { href: 'apps.html', icon: '📱', text: 'Apps & Websites' },
-    { href: 'tools.html', icon: '🔧', text: 'Tools' }
+    { href: 'index.html', icon: 'fas fa-home', text: 'Home' },
+    { href: 'tips.html', icon: 'fas fa-lightbulb', text: 'Tips & Tricks' },
+    { href: 'apps.html', icon: 'fas fa-mobile-alt', text: 'Apps & Websites' },
+    { href: 'tools.html', icon: 'fas fa-tools', text: 'Tools' }
 ];
 
 // Load Navigation and Header Dynamically
 document.addEventListener('DOMContentLoaded', () => {
     // Create navigation HTML
     const menuHTML = menuItems.map(item => 
-        `<li><a href="${item.href}"><span class="icon">${item.icon}</span><span class="text">${item.text}</span></a></li>`
+        `<li><a href="${item.href}"><span class="icon"><i class="${item.icon}"></i></span><span class="text">${item.text}</span></a></li>`
     ).join('');
     
     const headerHTML = `
@@ -141,11 +141,18 @@ async function loadAllData() {
 }
 
 function createCard(item) {
+    const hasDetailPage = item.detailPage;
+    const detailLink = hasDetailPage ? `<a href="${item.detailPage}" class="btn-detail">Learn More</a>` : '';
+    const externalLink = item.url ? `<a href="${item.url}" target="_blank">Visit</a>` : '';
+    
     return `
         <div class="card">
             <h3>${item.title || item.name}</h3>
             <p>${item.description}</p>
-            ${item.url ? `<a href="${item.url}" target="_blank">Visit</a>` : ""}
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                ${detailLink}
+                ${externalLink}
+            </div>
             <div><small>Category: ${item.category || 'General'}</small></div>
         </div>
     `;
