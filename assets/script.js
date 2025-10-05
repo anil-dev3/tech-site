@@ -41,9 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Insert header and navigation at the beginning of body
     document.body.insertAdjacentHTML('afterbegin', headerHTML + navHTML);
     
-    // Initialize hamburger menu and search after loading
+    // Initialize hamburger menu
     initializeMenu();
-    initializeGlobalSearch();
+    
+    // Load data and initialize page content
+    loadAllData();
 });
 
 // Hamburger Menu Toggle
@@ -111,49 +113,32 @@ function initializeGlobalSearch() {
     });
 }
 
-// Embedded Data - Edit these arrays to add/update content
-const tipsData = [
-    {
-        "title": "Take Screenshots Quickly",
-        "description": "Press Win+Shift+S to open the snipping tool in Windows 10/11.",
-        "category": "Windows"
-    },
-    {
-        "title": "Incognito Mode Shortcut",
-        "description": "Press Ctrl+Shift+N in Chrome to open a new Incognito window.",
-        "category": "Browser"
-    }
-];
+// Data will be loaded from JSON files
+let tipsData = [];
+let appsData = [];
+let toolsData = [];
 
-const appsData = [
-    {
-        "name": "Notion",
-        "description": "All-in-one workspace for notes, tasks, and databases.",
-        "url": "https://notion.so",
-        "category": "Productivity"
-    },
-    {
-        "name": "ShareX",
-        "description": "Free screen capture, file sharing and productivity tool.",
-        "url": "https://getsharex.com/",
-        "category": "Utilities"
+// Helper to fetch JSON data
+async function fetchData(file) {
+    try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error('Failed to fetch');
+        return await response.json();
+    } catch (error) {
+        console.error(`Error loading ${file}:`, error);
+        return [];
     }
-];
+}
 
-const toolsData = [
-    {
-        "name": "Password Generator",
-        "description": "Generate secure random passwords for your accounts.",
-        "url": "https://passwordsgenerator.net/",
-        "category": "Security"
-    },
-    {
-        "name": "JSON Formatter",
-        "description": "Easily format and validate your JSON data.",
-        "url": "https://jsonformatter.org/",
-        "category": "Development"
-    }
-];
+// Load all data
+async function loadAllData() {
+    tipsData = await fetchData('data/tips.json');
+    appsData = await fetchData('data/apps.json');
+    toolsData = await fetchData('data/tools.json');
+    
+    // Initialize page-specific functionality after data is loaded
+    initializePageContent();
+}
 
 function createCard(item) {
     return `
@@ -166,63 +151,69 @@ function createCard(item) {
     `;
 }
 
-// Home page: Show top tips and tools
-if (document.getElementById('top-tips')) {
-    document.getElementById('top-tips').innerHTML = tipsData.slice(0, 3).map(createCard).join('');
-}
-if (document.getElementById('top-tools')) {
-    document.getElementById('top-tools').innerHTML = toolsData.slice(0, 3).map(createCard).join('');
-}
-
-// Tips page
-if (document.getElementById('tips-list')) {
-    const categories = [...new Set(tipsData.map(t => t.category))];
-    const select = document.getElementById('tips-category');
-    select.innerHTML = `<option value="">All</option>` + categories.map(c => `<option value="${c}">${c}</option>`).join('');
-    select.onchange = () => {
-        const val = select.value;
-        document.getElementById('tips-list').innerHTML = tipsData.filter(t => !val || t.category === val).map(createCard).join('');
-    };
-    select.onchange();
-}
-
-// Apps page
-if (document.getElementById('apps-list')) {
-    const categories = [...new Set(appsData.map(a => a.category))];
-    const select = document.getElementById('apps-category');
-    select.innerHTML = `<option value="">All</option>` + categories.map(c => `<option value="${c}">${c}</option>`).join('');
-    select.onchange = () => {
-        const val = select.value;
-        document.getElementById('apps-list').innerHTML = appsData.filter(a => !val || a.category === val).map(createCard).join('');
-    };
-    select.onchange();
-}
-
-// Tools page
-if (document.getElementById('tools-list')) {
-    const categories = [...new Set(toolsData.map(t => t.category))];
-    const select = document.getElementById('tools-category');
-    select.innerHTML = `<option value="">All</option>` + categories.map(c => `<option value="${c}">${c}</option>`).join('');
-    select.onchange = () => {
-        const val = select.value;
-        document.getElementById('tools-list').innerHTML = toolsData.filter(t => !val || t.category === val).map(createCard).join('');
-    };
-    select.onchange();
-}
-
-// Search page
-if (document.getElementById('search-input')) {
-    const searchInput = document.getElementById('search-input');
-    const resultsDiv = document.getElementById('search-results');
-
-    function renderResults(q) {
-        q = q.toLowerCase();
-        const matches = [
-            ...tipsData.filter(t => t.title.toLowerCase().includes(q) || t.description.toLowerCase().includes(q)),
-            ...appsData.filter(a => a.name.toLowerCase().includes(q) || a.description.toLowerCase().includes(q)),
-            ...toolsData.filter(t => t.name.toLowerCase().includes(q) || t.description.toLowerCase().includes(q))
-        ];
-        resultsDiv.innerHTML = matches.length ? matches.map(createCard).join('') : "<p>No results found.</p>";
+// Initialize page-specific content after data is loaded
+function initializePageContent() {
+    // Home page: Show top tips and tools
+    if (document.getElementById('top-tips')) {
+        document.getElementById('top-tips').innerHTML = tipsData.slice(0, 3).map(createCard).join('');
     }
-    searchInput.addEventListener('input', () => renderResults(searchInput.value));
+    if (document.getElementById('top-tools')) {
+        document.getElementById('top-tools').innerHTML = toolsData.slice(0, 3).map(createCard).join('');
+    }
+
+    // Tips page
+    if (document.getElementById('tips-list')) {
+        const categories = [...new Set(tipsData.map(t => t.category))];
+        const select = document.getElementById('tips-category');
+        select.innerHTML = `<option value="">All</option>` + categories.map(c => `<option value="${c}">${c}</option>`).join('');
+        select.onchange = () => {
+            const val = select.value;
+            document.getElementById('tips-list').innerHTML = tipsData.filter(t => !val || t.category === val).map(createCard).join('');
+        };
+        select.onchange();
+    }
+
+    // Apps page
+    if (document.getElementById('apps-list')) {
+        const categories = [...new Set(appsData.map(a => a.category))];
+        const select = document.getElementById('apps-category');
+        select.innerHTML = `<option value="">All</option>` + categories.map(c => `<option value="${c}">${c}</option>`).join('');
+        select.onchange = () => {
+            const val = select.value;
+            document.getElementById('apps-list').innerHTML = appsData.filter(a => !val || a.category === val).map(createCard).join('');
+        };
+        select.onchange();
+    }
+
+    // Tools page
+    if (document.getElementById('tools-list')) {
+        const categories = [...new Set(toolsData.map(t => t.category))];
+        const select = document.getElementById('tools-category');
+        select.innerHTML = `<option value="">All</option>` + categories.map(c => `<option value="${c}">${c}</option>`).join('');
+        select.onchange = () => {
+            const val = select.value;
+            document.getElementById('tools-list').innerHTML = toolsData.filter(t => !val || t.category === val).map(createCard).join('');
+        };
+        select.onchange();
+    }
+
+    // Search page
+    if (document.getElementById('search-input')) {
+        const searchInput = document.getElementById('search-input');
+        const resultsDiv = document.getElementById('search-results');
+
+        function renderResults(q) {
+            q = q.toLowerCase();
+            const matches = [
+                ...tipsData.filter(t => t.title.toLowerCase().includes(q) || t.description.toLowerCase().includes(q)),
+                ...appsData.filter(a => a.name.toLowerCase().includes(q) || a.description.toLowerCase().includes(q)),
+                ...toolsData.filter(t => t.name.toLowerCase().includes(q) || t.description.toLowerCase().includes(q))
+            ];
+            resultsDiv.innerHTML = matches.length ? matches.map(createCard).join('') : "<p>No results found.</p>";
+        }
+        searchInput.addEventListener('input', () => renderResults(searchInput.value));
+    }
+    
+    // Initialize global search after data is loaded
+    initializeGlobalSearch();
 }
