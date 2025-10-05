@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Notion",
+        "description": "All-in-one workspace for notes, tasks, and databases.",
+        "url": "https://notion.so",
+        "category": "Productivity"
+    },
+    {
+        "name": "ShareX",
+        "description": "Free screen capture, file sharing and productivity tool.",
+        "url": "https://getsharex.com/",
+        "category": "Utilities"
+    }
+]

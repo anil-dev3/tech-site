@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Password Generator",
+        "description": "Generate secure random passwords for your accounts.",
+        "url": "https://passwordsgenerator.net/",
+        "category": "Security"
+    },
+    {
+        "name": "JSON Formatter",
+        "description": "Easily format and validate your JSON data.",
+        "url": "https://jsonformatter.org/",
+        "category": "Development"
+    }
+]
